@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+ 	<meta charset="utf-8">
+ 	<script type="text/javascript" src="js/lib/knockout-3.1.0.js"></script>
+ 	<script type="text/javascript" src="js/lib/jquery-2.1.0.min.js"></script>
+ 	<script type="text/javascript" src="js/lib/sammy-latest.min.js"></script>
+ 	<script type="text/javascript" src="js/init.js"></script>
+ </head>
+ <body>
+ 	<!-- ko if: agenda() -->
+ 	<div>
+ 		<table>
+ 			<thead>
+ 				<tr>
+ 				<th>
+ 					Nombre
+ 				</th>
+ 				<th>
+ 					Apellido
+ 				</th>
+ 				<tr>
+ 			</thead>
+ 			<tbody data-bind="foreach: agenda">
+ 				<tr>
+ 					<td data-bind="text: Nombre">
+ 					</td>
+ 					<td data-bind="text: Apellido">
+ 					</td>
+ 					<td>
+ 						<button data-bind="click: $root.editarContacto">Editar</button>
+ 					</td>
+ 					
+ 				</tr>
+ 			</tbody>
+ 		</table>
+ 		<button data-bind="click: $root.agregarContacto">Agregar</button>
+ 	</div>
+ 	<!-- /ko -->
+	<!-- ko if: contacto() --> 	
+ 	<div id="contact" data-bind="with: contacto">
+ 		<fieldset>
+ 			<legend>Datos</legend>
+ 			<div>
+ 				<label for="Nombre">Nombre</label>
+ 				<input type="text" id="Nombre" data-bind="value: Nombre"/>
+ 			</div>
+ 			 <div>
+ 				<label for="Apellido">Apellido</label>
+ 				<input type="text" id="Apellido" data-bind="value: Apellido"/>
+ 			</div>
+ 			<button data-bind="click: $root.guardarContacto">Guardar</button>
+ 		</fieldset>
+ 	</div>
+ 	<!-- /ko -->
+ </body>
